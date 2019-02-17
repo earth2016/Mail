@@ -1402,7 +1402,7 @@ if (!function_exists('imap_rfc822_parse_headers')) {
         }
 
         $headers->from = array(new \stdClass());
-        preg_match('#\nFrom\:([^\n]*)#', $header, $from);
+        preg_match('#\n*\'?From\:([^\n]*)#', $header, $from);
         $headers->from[0] = imap_rfc822_parse_headers_decode(trim($from[1]));
 
         preg_match('#\nCc\:([^\n]*)#', $header, $cc);
